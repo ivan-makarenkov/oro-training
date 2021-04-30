@@ -19,7 +19,7 @@ class EntityNameProviderDecorator implements EntityNameProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function getName($format, $locale, $entity): string
+    public function getName($format, $locale, $entity)
     {
         if ($entity instanceof FullNameInterface) {
             return sprintf(
@@ -36,7 +36,7 @@ class EntityNameProviderDecorator implements EntityNameProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function getNameDQL($format, $locale, $className, $alias): string
+    public function getNameDQL($format, $locale, $className, $alias)
     {
         return $this->entityNameProvider->getNameDQL($format, $locale, $className, $alias);
     }
