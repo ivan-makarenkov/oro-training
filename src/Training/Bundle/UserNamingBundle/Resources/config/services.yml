@@ -1,0 +1,5 @@
+services:
+  user_naming.user_view_listener:
+    class: Training\Bundle\UserNamingBundle\EventListener\UserViewListener
+    tags:
+      - { name: kernel.event_listener, event: oro_ui.scroll_data.before.userView, method: onUserView }
