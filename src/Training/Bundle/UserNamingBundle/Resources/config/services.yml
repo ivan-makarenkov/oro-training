@@ -1,0 +1,7 @@
+services:
+  user_naming.entity_name_provider:
+    decorates: oro_locale.entity_name_provider
+    class: Training\Bundle\UserNamingBundle\Provider\EntityNameProviderDecorator
+    public: false
+    arguments:
+      - '@user_naming.entity_name_provider.inner'
