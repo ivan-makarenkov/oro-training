@@ -1,0 +1,14 @@
+{% import '@OroUI/macros.html.twig' as UI %}
+
+{{ UI.renderProperty('training.usernaming.full_formatted_name'|trans, entity|oro_format_name) }}
+
+{% if entity.namingType %}
+    {% set formattedNameExample %}
+        {% include '@UserNaming/UserNaming/fullNameExample.html.twig' with {'format': entity.namingType.format} %}
+    {% endset %}
+    {{ UI.renderHtmlProperty('training.usernaming.full_formatted_name_example'|trans, formattedNameExample) }}
+{% endif %}
+
+{{ UI.renderProperty('oro.user.name_prefix.label'|trans, entity.namePrefix) }}
+{{ UI.renderProperty('oro.user.first_name.label'|trans, entity.firstName) }}
+{{ UI.renderProperty('oro.user.middle_name.label'|trans, entity.middleName) }}
