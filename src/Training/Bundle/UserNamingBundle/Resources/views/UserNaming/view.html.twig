@@ -15,6 +15,9 @@
     {{ parent() }}
 {% endblock pageHeader %}
 
+{% block stats %}
+{% endblock stats %}
+
 {% block content_data %}
     {% set generalIinformation %}
         <div class="widget-content">
@@ -41,18 +44,21 @@
             'title': 'training.usernaming.sections.general'|trans,
             'class': 'active',
             'subblocks': [
-            {'data' : [generalIinformation]}
-        ]
-        },
-        {
-            'title': 'training.usernaming.sections.related_users'|trans,
-            'subblocks': [
-            {'data' : [relatedUsers]}
-        ]
+                {'data' : [generalIinformation]}
+            ]
         }
     ] %}
-
+    {% if is_granted('oro_user_user_view') %}
+       {% set relatedUsersBlocls = [
+           {
+               'title': 'training.usernaming.sections.related_users'|trans,
+               'subblocks': [
+                   {'data' : [relatedUsers]}
+               ]
+           }
+       ] %}
+    {% endif %}
     {% set id = 'user-naming-type' %}
-    {% set data = { 'dataBlocks': dataBlocks } %}
+    {% set data = { 'dataBlocks': dataBlocks|merge(relatedUsersBlocls) } %}
     {{ parent() }}
 {% endblock content_data %}

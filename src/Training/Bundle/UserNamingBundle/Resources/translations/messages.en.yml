@@ -10,6 +10,11 @@ training.usernaming:
   full_formatted_name: 'Full Formatted Name'
   full_formatted_name_example: 'Formatted Name Example'
 
+  security:
+    training_user_naming_info:
+      label: 'User Naming Info'
+      description: 'Show full User Naming Info at User View page'
+
   sections:
     general: 'General Information'
     related_users: 'Related Users'
