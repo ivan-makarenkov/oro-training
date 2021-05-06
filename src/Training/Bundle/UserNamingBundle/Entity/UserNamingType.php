@@ -6,6 +6,7 @@ namespace Training\Bundle\UserNamingBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\Config;
+use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\ConfigField;
 use Training\Bundle\UserNamingBundle\Model\ExtendUserNamingType;
 
 /**
@@ -37,25 +38,46 @@ class UserNamingType extends ExtendUserNamingType
      * @ORM\Id
      * @ORM\Column(type="integer", name="id")
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @ConfigField(
+     *      defaultValues={
+     *          "importexport"={
+     *              "order"=10
+     *          }
+     *      }
+     * )
      */
-    private int $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=64, nullable=false)
+     * @ConfigField(
+     *      defaultValues={
+     *          "importexport"={
+     *              "order"=20
+     *          }
+     *      }
+     * )
      */
     private string $title;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=false)
+     * @ConfigField(
+     *      defaultValues={
+     *          "importexport"={
+     *              "order"=30
+     *          }
+     *      }
+     * )
      */
     private string $format;
 
     /**
-     * @return int
+     * @return int | null
      */
-    public function getId(): int
+    public function getId(): ?int
     {
-        return $this->id;
+        return $this->id ?? null;
     }
 
     /**
