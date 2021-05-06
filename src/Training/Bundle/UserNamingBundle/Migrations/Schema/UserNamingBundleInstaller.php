@@ -60,7 +60,7 @@ class UserNamingBundleInstaller implements Installation, ExtendExtensionAwareInt
         $this->extendExtension->addManyToOneRelation(
             $schema,
             $table,
-            'naming_type',
+            'namingType',
             UserNamingType::TABLE_NAME,
             'title',
             [

@@ -41,8 +41,6 @@ class UserNamingType extends ExtendUserNamingType
     private string $title;
 
     /**
-     * Allowed placeholders are: PREFIX, FIRST, MIDDLE, LAST, SUFFIX
-     *
      * @ORM\Column(type="string", length=255, nullable=false)
      */
     private string $format;

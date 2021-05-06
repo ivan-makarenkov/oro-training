@@ -35,7 +35,7 @@ class UserNamingBundle implements Migration, ExtendExtensionAwareInterface
         $this->extendExtension->addManyToOneRelation(
             $schema,
             $table,
-            'naming_type',
+            'namingType',
             UserNamingType::TABLE_NAME,
             'title',
             [
