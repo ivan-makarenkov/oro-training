@@ -27,23 +27,8 @@ class UserNamingExtension extends AbstractExtension
     public function getFilters(): array
     {
         return [
-            new TwigFilter('full_name_example', [$this, 'getFullNameExample'])
+            new TwigFilter('full_name_example', [$this->fullNameProvider, 'getFullNameExample'])
         ];
     }
 
-    /**
-     * @param string $format
-     * @return string
-     */
-    public function getFullNameExample(string $format): string
-    {
-        $user = new User();
-        $user->setNamePrefix('Ms.')
-            ->setFirstName('Tes')
-            ->setMiddleName('Testovich')
-            ->setLastName('Testova')
-            ->setNameSuffix('Sx.');
-
-        return $this->fullNameProvider->getFullName($user, $format);
-    }
 }

@@ -46,7 +46,7 @@ class UserNamingType extends ExtendUserNamingType
      *      }
      * )
      */
-    private ?int $id;
+    private ?int $id = null;
 
     /**
      * @ORM\Column(type="string", length=64, nullable=false)
@@ -77,7 +77,7 @@ class UserNamingType extends ExtendUserNamingType
      */
     public function getId(): ?int
     {
-        return $this->id ?? null;
+        return $this->id;
     }
 
     /**

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Training\Bundle\UserNamingBundle\Provider;
 
 use Oro\Bundle\LocaleBundle\Model\FullNameInterface;
+use Oro\Bundle\UserBundle\Entity\User;
 
 class FullNameProvider
 {
@@ -25,5 +26,22 @@ class FullNameProvider
                 'SUFFIX' => $user->getNameSuffix(),
             ]
         );
+    }
+
+
+    /**
+     * @param string $format
+     * @return string
+     */
+    public function getFullNameExample(string $format): string
+    {
+        $user = new User();
+        $user->setNamePrefix('Ms.')
+            ->setFirstName('Tes')
+            ->setMiddleName('Testovich')
+            ->setLastName('Testova')
+            ->setNameSuffix('Sx.');
+
+        return $this->getFullName($user, $format);
     }
 }
